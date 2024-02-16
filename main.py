@@ -1,15 +1,17 @@
 from customtkinter import *
 
-window = CTk(fg_color='#0E1F0D')
+window = CTk()
+window._set_appearance_mode('dark')
 
 
 class Application():
     def __init__(self):
         self.window = window
         self.window_config()
-        self.frames()
-        self.buttons()
-        window.mainloop()
+        self.tab1()
+        #self.frames()
+        #self.widgets_frame1()
+        self.window.mainloop()
 
 
     def window_config(self):
@@ -17,9 +19,12 @@ class Application():
         altura = window.winfo_screenheight()
 
         self.window.title("IStudy")
-        self.window.geometry(f'{largura//2}x{altura//2}')
-        self.window.resizable(True, True)
-        self,window.minsize(width=largura//2, height=altura//2)
+        self.window.geometry(f'1000x600')
+        self.window.resizable(False, False)
+
+    def tab1(self):
+        self.tab1 = CTkFrame(self.window, width=960, height=80)
+        self.tab1.place(x=20, y=20)
 
     def frames(self):
         self.frame1 = CTkFrame(self.window)
@@ -31,9 +36,9 @@ class Application():
         self.frame3 = CTkFrame(self.window)
         self.frame3.place(relx=0.51, rely=0.12, relwidth=0.47, relheight=0.86)
 
-    def buttons(self):
+    def widgets_frame1(self):
         self.bt_limpar = CTkButton(self.frame1, text='Limpar')
-        self.bt_limpar.place(relx=0.01, rely=0.125, relwidth=0.10, relheight=0.75)
+        self.bt_limpar.place(relx=0.01, rely=0.125, relwidth=0.1, relheight=0.75)
 
         self.bt_buscar = CTkButton(self.frame1, text='Buscar')
         self.bt_buscar.place(relx=0.12, rely=0.125, relwidth=0.10, relheight=0.75)
@@ -58,9 +63,6 @@ class Application():
 
         self.bt_buscar = CTkButton(self.frame1, text='Buscar')
         self.bt_buscar.place(relx=0.89, rely=0.125, relwidth=0.10, relheight=0.75)
-
-
-
 
 
 
